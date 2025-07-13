@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleAI.css') }}">
+    <!-- <link rel="stylesheet" href="styleAI.css"> -->
+</head>
+
+<body>
+    <div class="container">
+        <h1>Crop Prediction System</h1>
+        <form action="/predict" method="POST">
+            <div>
+                <label for="Nitrogen">Nitrogen (N):</label>
+                <input type="number" step="any" id="Nitrogen" name="Nitrogen" required>
+            </div>
+
+            <div>
+                <label for="Phosporus">Phosphorus (P):</label>
+                <input type="number" step="any" id="Phosporus" name="Phosporus" required>
+            </div>
+
+            <div>
+                <label for="Potassium">Potassium (K):</label>
+                <input type="number" step="any" id="Potassium" name="Potassium" required>
+            </div>
+
+            <div>
+                <label for="Temperature">Temperature (°C):</label>
+                <input type="number" step="any" id="Temperature" name="Temperature" required>
+            </div>
+
+            <div>
+                <label for="Humidity">Humidity (%):</label>
+                <input type="number" step="any" id="Humidity" name="Humidity" required>
+            </div>
+
+            <div>
+                <label for="pH">pH Value:</label>
+                <input type="number" step="any" id="pH" name="pH" required>
+            </div>
+
+            <div>
+                <label for="Rainfall">Rainfall (mm):</label>
+                <input type="number" id="Rainfall" name="Rainfall" required>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        {% if result %}
+        <div style="margin-top: 20px;">
+            <h2>Recommended Crop:</h2>
+            <p>{{ result }}</p>
+        </div>
+        {% endif %}
+
+    </div>
+</body>
+</html>
